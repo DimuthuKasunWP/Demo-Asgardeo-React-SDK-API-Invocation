@@ -58,12 +58,7 @@ export const SCIMAPISection = (props: any) => {
                         "value": {
                             "name": {
                                 "givenName": name
-                            }
-                        }
-                    },
-                    {
-                        "op": "replace",
-                        "value": {
+                            },
                             "urn:scim:wso2:schema": {
                                 "country": country,
                                 "dateOfBirth": dob,

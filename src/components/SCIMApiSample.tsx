@@ -39,7 +39,6 @@ export const SCIMAPISection = (props: any) => {
 
         }).catch((error) => {
             console.log("request error: " + error);
-            history.push("/networkError");
         })
     }
 
@@ -77,7 +76,6 @@ export const SCIMAPISection = (props: any) => {
 
         }).catch((error) => {
             console.log("request error: " + error);
-            history.push("/networkError");
         })
 
     }
@@ -117,7 +115,7 @@ export const SCIMAPISection = (props: any) => {
                                 value={dob} type="text" name="dob" />
                         </label>
                         <br />
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Update" />
                     </form>
                     <div className='col-xs-12 col-md-12 json'>
                         {' '}

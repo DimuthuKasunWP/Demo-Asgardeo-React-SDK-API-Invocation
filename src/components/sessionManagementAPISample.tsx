@@ -23,7 +23,7 @@ export const SessionManagementAPISection = (props: any) => {
         const requestConfig: HttpRequestConfig = {
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/scim+json"
+                "Content-Type": "application/json"
             },
             attachToken: true,
             method: "GET",

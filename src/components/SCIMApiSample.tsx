@@ -9,6 +9,7 @@ export const SCIMAPISection = (props: any) => {
     const [name, setName] = useState<string>("");
     const [scimUserInfo, setScimUserInfo] = useState<any>({});
     const [country, setCountry] = useState<string>("");
+    const [activityStatus, setActivityStatus] = useState<string>("");
     const [dob, setDateOfBirth] = useState<string>("");
     const history= useHistory();
 
@@ -36,6 +37,7 @@ export const SCIMAPISection = (props: any) => {
             setName(response.data.name.givenName);
             setCountry(response.data["urn:scim:wso2:schema"]["country"]);
             setDateOfBirth(response.data["urn:scim:wso2:schema"]["dateOfBirth"])
+            setActivityStatus(response.data["urn:scim:wso2:schema"]["activitystatus"])
 
         }).catch((error) => {
             console.log("request error: " + error);
@@ -61,6 +63,7 @@ export const SCIMAPISection = (props: any) => {
                             "urn:scim:wso2:schema": {
                                 "country": country,
                                 "dateOfBirth": dob,
+                                "activitystatus":activityStatus
                             }
                         }
                     },
@@ -102,7 +105,7 @@ export const SCIMAPISection = (props: any) => {
                         </label>
                         <br />
                         <label>
-                            Change Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Change Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input
                                 onChange={(e) => setCountry(e.target.value)}
                                 value={country} type="text" name="country" />
@@ -114,6 +117,17 @@ export const SCIMAPISection = (props: any) => {
                                 onChange={(e) => setDateOfBirth(e.target.value)}
                                 value={dob} type="text" name="dob" />
                         </label>
+                        <br />
+                        <br />
+                        <h4> Custom Attribute</h4>
+                        <label>
+                            Activity Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input
+                                onChange={(e) => setActivityStatus(e.target.value)}
+                                value={activityStatus} type="text" name="activityStatus" />
+                        </label>
+                        <br />
                         <br />
                         <input type="submit" value="Update" />
                     </form>
